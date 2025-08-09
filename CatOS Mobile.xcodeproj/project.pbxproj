@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		65ACFF632E474D1E00E4494E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65ACFF4D2E474D1C00E4494E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65ACFF542E474D1C00E4494E;
+			remoteInfo = "CatOS Mobile";
+		};
+		65ACFF6D2E474D1E00E4494E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65ACFF4D2E474D1C00E4494E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65ACFF542E474D1C00E4494E;
+			remoteInfo = "CatOS Mobile";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65ACFF552E474D1C00E4494E /* CatOS Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CatOS Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65ACFF622E474D1E00E4494E /* CatOS MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CatOS MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65ACFF6C2E474D1E00E4494E /* CatOS MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CatOS MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		65ACFF572E474D1C00E4494E /* CatOS Mobile */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "CatOS Mobile";
+			sourceTree = "<group>";
+		};
+		65ACFF652E474D1E00E4494E /* CatOS MobileTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "CatOS MobileTests";
+			sourceTree = "<group>";
+		};
+		65ACFF6F2E474D1E00E4494E /* CatOS MobileUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "CatOS MobileUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65ACFF522E474D1C00E4494E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65ACFF5F2E474D1E00E4494E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65ACFF692E474D1E00E4494E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65ACFF4C2E474D1C00E4494E = {
+			isa = PBXGroup;
+			children = (
+				65ACFF572E474D1C00E4494E /* CatOS Mobile */,
+				65ACFF652E474D1E00E4494E /* CatOS MobileTests */,
+				65ACFF6F2E474D1E00E4494E /* CatOS MobileUITests */,
+				65ACFF562E474D1C00E4494E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65ACFF562E474D1C00E4494E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65ACFF552E474D1C00E4494E /* CatOS Mobile.app */,
+				65ACFF622E474D1E00E4494E /* CatOS MobileTests.xctest */,
+				65ACFF6C2E474D1E00E4494E /* CatOS MobileUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65ACFF542E474D1C00E4494E /* CatOS Mobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65ACFF762E474D1E00E4494E /* Build configuration list for PBXNativeTarget "CatOS Mobile" */;
+			buildPhases = (
+				65ACFF512E474D1C00E4494E /* Sources */,
+				65ACFF522E474D1C00E4494E /* Frameworks */,
+				65ACFF532E474D1C00E4494E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				65ACFF572E474D1C00E4494E /* CatOS Mobile */,
+			);
+			name = "CatOS Mobile";
+			packageProductDependencies = (
+			);
+			productName = "CatOS Mobile";
+			productReference = 65ACFF552E474D1C00E4494E /* CatOS Mobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65ACFF612E474D1E00E4494E /* CatOS MobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65ACFF792E474D1E00E4494E /* Build configuration list for PBXNativeTarget "CatOS MobileTests" */;
+			buildPhases = (
+				65ACFF5E2E474D1E00E4494E /* Sources */,
+				65ACFF5F2E474D1E00E4494E /* Frameworks */,
+				65ACFF602E474D1E00E4494E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65ACFF642E474D1E00E4494E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				65ACFF652E474D1E00E4494E /* CatOS MobileTests */,
+			);
+			name = "CatOS MobileTests";
+			packageProductDependencies = (
+			);
+			productName = "CatOS MobileTests";
+			productReference = 65ACFF622E474D1E00E4494E /* CatOS MobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		65ACFF6B2E474D1E00E4494E /* CatOS MobileUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65ACFF7C2E474D1E00E4494E /* Build configuration list for PBXNativeTarget "CatOS MobileUITests" */;
+			buildPhases = (
+				65ACFF682E474D1E00E4494E /* Sources */,
+				65ACFF692E474D1E00E4494E /* Frameworks */,
+				65ACFF6A2E474D1E00E4494E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65ACFF6E2E474D1E00E4494E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				65ACFF6F2E474D1E00E4494E /* CatOS MobileUITests */,
+			);
+			name = "CatOS MobileUITests";
+			packageProductDependencies = (
+			);
+			productName = "CatOS MobileUITests";
+			productReference = 65ACFF6C2E474D1E00E4494E /* CatOS MobileUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65ACFF4D2E474D1C00E4494E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					65ACFF542E474D1C00E4494E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					65ACFF612E474D1E00E4494E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 65ACFF542E474D1C00E4494E;
+					};
+					65ACFF6B2E474D1E00E4494E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 65ACFF542E474D1C00E4494E;
+					};
+				};
+			};
+			buildConfigurationList = 65ACFF502E474D1C00E4494E /* Build configuration list for PBXProject "CatOS Mobile" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65ACFF4C2E474D1C00E4494E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 65ACFF562E474D1C00E4494E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65ACFF542E474D1C00E4494E /* CatOS Mobile */,
+				65ACFF612E474D1E00E4494E /* CatOS MobileTests */,
+				65ACFF6B2E474D1E00E4494E /* CatOS MobileUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65ACFF532E474D1C00E4494E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65ACFF602E474D1E00E4494E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65ACFF6A2E474D1E00E4494E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65ACFF512E474D1C00E4494E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65ACFF5E2E474D1E00E4494E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65ACFF682E474D1E00E4494E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65ACFF642E474D1E00E4494E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65ACFF542E474D1C00E4494E /* CatOS Mobile */;
+			targetProxy = 65ACFF632E474D1E00E4494E /* PBXContainerItemProxy */;
+		};
+		65ACFF6E2E474D1E00E4494E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65ACFF542E474D1C00E4494E /* CatOS Mobile */;
+			targetProxy = 65ACFF6D2E474D1E00E4494E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		65ACFF742E474D1E00E4494E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65ACFF752E474D1E00E4494E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65ACFF772E474D1E00E4494E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.danielk.CatOS-Mobile";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65ACFF782E474D1E00E4494E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.danielk.CatOS-Mobile";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		65ACFF7A2E474D1E00E4494E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.danielk.CatOS-MobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatOS Mobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CatOS Mobile";
+			};
+			name = Debug;
+		};
+		65ACFF7B2E474D1E00E4494E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.danielk.CatOS-MobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatOS Mobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CatOS Mobile";
+			};
+			name = Release;
+		};
+		65ACFF7D2E474D1E00E4494E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.danielk.CatOS-MobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "CatOS Mobile";
+			};
+			name = Debug;
+		};
+		65ACFF7E2E474D1E00E4494E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NS4V5BBM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "top.danielk.CatOS-MobileUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "CatOS Mobile";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65ACFF502E474D1C00E4494E /* Build configuration list for PBXProject "CatOS Mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65ACFF742E474D1E00E4494E /* Debug */,
+				65ACFF752E474D1E00E4494E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65ACFF762E474D1E00E4494E /* Build configuration list for PBXNativeTarget "CatOS Mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65ACFF772E474D1E00E4494E /* Debug */,
+				65ACFF782E474D1E00E4494E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65ACFF792E474D1E00E4494E /* Build configuration list for PBXNativeTarget "CatOS MobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65ACFF7A2E474D1E00E4494E /* Debug */,
+				65ACFF7B2E474D1E00E4494E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65ACFF7C2E474D1E00E4494E /* Build configuration list for PBXNativeTarget "CatOS MobileUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65ACFF7D2E474D1E00E4494E /* Debug */,
+				65ACFF7E2E474D1E00E4494E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65ACFF4D2E474D1C00E4494E /* Project object */;
+}
