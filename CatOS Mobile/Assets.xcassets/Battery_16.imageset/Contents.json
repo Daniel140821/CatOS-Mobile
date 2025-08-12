@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "104-568h@2x~iphone.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "BatteryBG_17@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
