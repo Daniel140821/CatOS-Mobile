@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var offsetValue : CGFloat = 0
     
-    @State private var UnLookOffsetValue : CGFloat = 0
-    
-    @State private var UnLook : Bool = false
+    @State private var pages : Int? = 1
     
     let weekdayList : [String] = ["日","一","二","三","四","五","六"]
     
@@ -62,374 +59,137 @@ struct HomeView: View {
             return batteryState == .charging || batteryState == .full
     }
     
+    @State var DockAppNameList : [String] = ["電話","郵件","Safari","iPod"]
+    @State var DockAppIconList : [String] = ["Phone","Mail","Safari","iPod"]
+    
     var body: some View {
-        VStack{
+        ZStack{
             
-            VStack(spacing: 0){
+            Image("bg")
+                .resizable()
+            
+            VStack{
                 
-                HStack{
-                    Text("沒有服務")
-                        .padding(.leading)
+                VStack(spacing: 0){
                     
-                    Image(systemName: "wifi")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "lock.fill")
-                        .padding(5)
-                    
-                    Spacer()
-                    
-                    Text("\(batteryLevel)%")
-                    
-                    
-                    // 根据充电状态和电量显示对应图标
-                    Group {
-                        if isCharging {
-                            Image(systemName: "battery.100percent.bolt")
-                        } else {
-                            switch batteryLevel {
-                            case 100:
-                                Image(systemName: "battery.100percent")
-                            case 75...99:
-                                Image(systemName: "battery.75percent")
-                            case 50...74:
-                                Image(systemName: "battery.50percent") // 修复原代码中此处误用75%图标的问题
-                            case 25...49:
-                                Image(systemName: "battery.25percent")
-                            case 0...24:
-                                Image(systemName: "battery.0percent")
-                            default:
-                                Image(systemName: "battery.0percent") // 使用更准确的未知状态图标
-                            }
-                        }
-                    }
-                    .padding(.trailing) // 将重复的padding提取到外层，避免代码冗余
-                    
-                }
-                .frame(maxWidth: .infinity)
-                .background{
-                    Rectangle()
-                        .fill(.black.opacity(0.7))
-                }
-                .foregroundColor(.white)
-                
-                VStack(spacing: -30){
                     HStack{
-                        Group{
-                            VStack{
-                                Image("Messages")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("信息")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            
-                            VStack{
-                                ZStack{
-                                    
-                                    Image("Calendar")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 70, height: 70)
-                                    
-                                    
-                                    Text(WeekDay)
-                                        .font(.caption)
-                                        .foregroundColor(.white)
-                                        .offset(y:-25)
-                                        .shadow(radius: 6)
-                                    
-                                    Text(day)
-                                        .font(.system(size:40))
-                                        .fontWeight(.heavy)
-                                        .foregroundColor(.black)
-                                        .offset(y:8)
-                                    
+                        Text("沒有服務")
+                            .padding(.leading)
+                        
+                        Image(systemName: "wifi")
+                        
+                        Spacer()
+                        
+                        Text(time)
+                            .padding(5)
+                        
+                        Spacer()
+                        
+                        Text("\(batteryLevel)%")
+                        
+                        
+                        // 根据充电状态和电量显示对应图标
+                        Group {
+                            if isCharging {
+                                Image(systemName: "battery.100percent.bolt")
+                            } else {
+                                switch batteryLevel {
+                                case 100:
+                                    Image(systemName: "battery.100percent")
+                                case 75...99:
+                                    Image(systemName: "battery.75percent")
+                                case 50...74:
+                                    Image(systemName: "battery.50percent") // 修复原代码中此处误用75%图标的问题
+                                case 25...49:
+                                    Image(systemName: "battery.25percent")
+                                case 0...24:
+                                    Image(systemName: "battery.0percent")
+                                default:
+                                    Image(systemName: "battery.0percent") // 使用更准确的未知状态图标
                                 }
-                                
-                                Text("日曆")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("Photos")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("相片")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("Camera")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("相機")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                                    .frame(width: 40)
                             }
                         }
-                        .padding(.trailing)
-                        .font(.system(size: 15))
+                        .padding(.trailing) // 将重复的padding提取到外层，避免代码冗余
+                        
                     }
-                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background{
+                        Rectangle()
+                            .fill(.black.opacity(0.7))
+                    }
+                    .foregroundColor(.white)
+                    
+                    // 修改HomeView.swift中的ScrollView设置
+                    GeometryReader{ geo in
+                        ScrollViewReader{ proxy in
+                            ScrollView(.horizontal) {
+                                HStack(spacing: 0) {
+                                    Group{
+                                        HomeViewSearchPage()
+                                            .id(0)
+                                            .background{
+                                                Color.black.opacity(0.7).ignoresSafeArea()
+                                            }
+                                        HomeViewPage1()
+                                            .id(1)
+                                        HomeViewPage2()
+                                            .id(2)
+                                    }
+                                    .frame(width: geo.size.width, height: geo.size.height)
+                                    // 移除子视图的 ignoresSafeArea(.keyboard)
+                                }
+                            }
+                            .scrollTargetLayout()
+                            .scrollPosition(id: $pages)
+                            .scrollIndicators(.hidden)
+                            .scrollTargetBehavior(.paging)
+                            .frame(maxWidth: .infinity)
+                            .onAppear { proxy.scrollTo(1, anchor: .leading) }
+                        }
+                    }
+                    
+                    Spacer()
                     
                     HStack{
-                        Group{
-                            VStack{
-                                Image("YouTube")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("YouTube")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            
-                            VStack{
-                                Image("Stocks")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("股市")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("Maps")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("地圖")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("Weather Celsius")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("天氣")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                                    .frame(width: 40)
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(pages == 0 ? Color(.white) : Color(.secondaryLabel))
+                            .font(.system(size: 15))
+                        
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(pages == 1 ? Color(.white) : pages == 0 ? Color(.white).opacity(0.4) : Color(.secondaryLabel))
+                        
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(pages == 2 ? Color(.white) : pages == 0 ? Color(.white).opacity(0.4) : Color(.secondaryLabel))
+                        
+                    }
+                    .font(.system(size: 10))
+                    .offset(y: -60)
+                    .bold()
+                    .frame(width: 0, height: 0)
+                    
+                    
+                    
+                    Dock(name: $DockAppNameList, iconName: $DockAppIconList)
+                        .offset(y: 7)
+                        .background{
+                            if pages == 0{
+                                Color.black.opacity(0.7)
+                                    .ignoresSafeArea()
+                                    .frame(height: 81)
                             }
                         }
-                        .padding(.trailing)
-                        .font(.system(size: 15))
-                    }
-                    .padding(.horizontal)
+                        
                     
                     
-                    HStack{
-                        Group{
-                            VStack{
-                                Image("Notes")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("備忘錄")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            
-                            VStack{
-                                Image("Utilities")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("工具程式")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("iTunes")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("iTunes")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("App Store")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("App Store")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                                    .frame(width: 70)
-                            }
-                        }
-                        .padding(.trailing)
-                        .font(.system(size: 15))
-                    }
-                    .padding(.horizontal)
-                    
-                    
-                    HStack{
-                        Group{
-                            VStack{
-                                Image("Settings")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("設定")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            Spacer()
-                        }
-                        .padding(.trailing)
-                        .font(.system(size: 15))
-                    }
-                    .padding(.horizontal)
                 }
-                
-                
-                Spacer()
-                
-                 
-                VStack{
-                    HStack{
-                        Group{
-                            VStack{
-                                Image("Phone")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("電話")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            
-                            VStack{
-                                Image("Mail")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("郵件")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("Safari")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("Safari")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                            }
-                            
-                            VStack{
-                                Image("iPod")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 70, height: 70)
-                                
-                                Text("iPod")
-                                    .padding(.vertical)
-                                    .offset(y:-25)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 6)
-                                    .frame(width: 40)
-                            }
-                        }
-                        .padding(.trailing)
-                        .font(.system(size: 15))
-                    }
-                    .frame(height: 70)
-                }
-                .frame(width: UIScreen.main.bounds.width - 46)
-                .background{
-                    Rectangle()
-                        .fill(.ultraThinMaterial)
-                        .frame(height: 100)
-                        .frame(maxWidth: .infinity)
-                        .rotation3DEffect(.degrees(55), axis: (x: 1, y: 0, z: 0))
-                }
-                .padding(.horizontal,24)
-                .offset(y: 39)
-                 
-                Spacer()
-
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background{
-                Image("bg")
-                    .resizable()
-            }
-            .animation(.easeInOut, value: offsetValue)
             .onAppear{
+                pages = 1
+                
                 UIDevice.current.isBatteryMonitoringEnabled = true
             }
-        }
+            
+        }//.ignoresSafeArea(.keyboard)
     }
 }
 

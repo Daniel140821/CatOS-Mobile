@@ -11,28 +11,19 @@ struct ContentView: View {
     var body: some View {
         VStack{
             VStack{
-                Circle()
-                    .opacity(0)
-                    .frame(width: 70)
-                    .ignoresSafeArea()
-                    .onTapGesture {
-                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                    }
-                    .padding()
-                
                 
                 LockHomeView()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 200)
                     .background()
                     .colorScheme(.light)
-                    .padding(.vertical)
+                    .padding(.top)
                 
-            }.ignoresSafeArea()
+            }
                 
             ZStack{
                 Circle()
                     .fill(.black.mix(with: .white, by: 0.2))
-                    .frame(width: 70)
+                    .frame(width: 70, height: 70)
                     .ignoresSafeArea()
                     .onTapGesture {
                         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
@@ -41,7 +32,8 @@ struct ContentView: View {
                 Image(systemName: "square")
                     .foregroundColor(Color(.secondaryLabel))
                     .font(.title)
-            }.ignoresSafeArea()
+            }
+            .padding()
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -51,6 +43,8 @@ struct ContentView: View {
                 .ignoresSafeArea()
         }
         .statusBarHidden(true)
+        .colorScheme(.light)
+        .ignoresSafeArea(.keyboard)
     }
 }
 

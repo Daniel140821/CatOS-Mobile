@@ -44,6 +44,10 @@ struct LockHomeView: View {
         Int(UIDevice.current.batteryLevel * 100)
     }
     
+    var moded_battery_level : Int{
+        abs(Int(batteryLevel/(100/16)))
+    }
+    
     var isCharging : Bool{
         // 获取电池状态
             let batteryState = UIDevice.current.batteryState
@@ -60,176 +64,212 @@ struct LockHomeView: View {
         if UnLook{
             HomeView()
         }else{
-            VStack{
-                
-                VStack(spacing: 0){
+            ZStack{
+                if isCharging{
+                    Rectangle()
+                        .fill(.black)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     
-                    HStack{
-                        Text("沒有服務")
-                            .padding(.leading)
+                    
+                    ZStack {
+                        Color.black.edgesIgnoringSafeArea(.all)
+                        Image("Battery_\(moded_battery_level)")
+                            .clipped()
+                            .mask(
+                                LinearGradient(
+                                    gradient: Gradient(stops: [
+                                        Gradient.Stop(color: .clear, location: 0),
+                                        Gradient.Stop(color: .clear, location: 0.60),
+                                        Gradient.Stop(color: Color.white.opacity(0.4), location: 1)
+                                    ]),
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
+                            .rotationEffect(.degrees(-180))
+                            .offset(y: 129)
+                            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                         
-                        Image(systemName: "wifi")
+                       Image("Battery_\(moded_battery_level)")
+                    }
+                }else{
+                    Image("bg")
+                        .resizable()
+                }
+                
+                VStack{
+                    
+                    VStack(spacing: 0){
                         
-                        Spacer()
+                        HStack{
+                            Text("沒有服務")
+                                .padding(.leading)
+                            
+                            Image(systemName: "wifi")
+                            
+                            Spacer()
+                            
+                            Image(systemName: "lock.fill")
+                                .padding(5)
+                            
+                            Spacer()
+                            
+                            Text("\(batteryLevel)%")
+                            
+                            
+                            // 根据充电状态和电量显示对应图标
+                            Group {
+                                if isCharging {
+                                    Image(systemName: "battery.100percent.bolt")
+                                } else {
+                                    switch batteryLevel {
+                                    case 100:
+                                        Image(systemName: "battery.100percent")
+                                    case 75...99:
+                                        Image(systemName: "battery.75percent")
+                                    case 50...74:
+                                        Image(systemName: "battery.50percent") // 修复原代码中此处误用75%图标的问题
+                                    case 25...49:
+                                        Image(systemName: "battery.25percent")
+                                    case 0...24:
+                                        Image(systemName: "battery.0percent")
+                                    default:
+                                        Image(systemName: "battery.0percent") // 使用更准确的未知状态图标
+                                    }
+                                }
+                            }
+                            .padding(.trailing) // 将重复的padding提取到外层，避免代码冗余
+                            
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background{
+                            Rectangle()
+                                .fill(.black.opacity(0.7))
+                        }
+                        .foregroundColor(.white)
                         
-                        Image(systemName: "lock.fill")
-                            .padding(5)
-                        
-                        Spacer()
-                        
-                        Text("\(batteryLevel)%")
-                        
-                        
-                        // 根据充电状态和电量显示对应图标
-                        Group {
-                            if isCharging {
-                                Image(systemName: "battery.100percent.bolt")
-                            } else {
-                                switch batteryLevel {
-                                case 100:
-                                    Image(systemName: "battery.100percent")
-                                case 75...99:
-                                    Image(systemName: "battery.75percent")
-                                case 50...74:
-                                    Image(systemName: "battery.50percent") // 修复原代码中此处误用75%图标的问题
-                                case 25...49:
-                                    Image(systemName: "battery.25percent")
-                                case 0...24:
-                                    Image(systemName: "battery.0percent")
-                                default:
-                                    Image(systemName: "battery.0percent") // 使用更准确的未知状态图标
+                        VStack{
+                            
+                            Text(time)
+                                .font(.system(size: 70))
+                                .fontWeight(.light)
+                                .foregroundColor(.white)
+                                .padding(.top)
+                            
+                            Text("\(date)\(WeekDay)")
+                                .foregroundColor(.white)
+                                .padding(.bottom)
+                            
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background{
+                            VStack(spacing: 0){
+                                Divider()
+                                    .frame(height: 0.5) // 数值越大，线越粗
+                                    .background(Color.gray)
+                                Rectangle()
+                                    .fill(Color(.secondaryLabel))
+                                
+                                Rectangle()
+                                    .fill(.black.opacity(0.6))
+                                Divider()
+                                    .frame(height: 0.5) // 数值越大，线越粗
+                                    .background(Color.gray)
+                            }
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    VStack{
+                        HStack{
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color(.systemGray3).gradient)
+                                    .shadow(color:.white,radius: 0.5,y: 0.5)
+                                    .frame(width: 80,height: 50)
+                                    .padding(5)
+                                
+                                Image(systemName: "arrowshape.right.fill")
+                                    .font(.largeTitle)
+                                    .foregroundColor(.gray)
+                            }
+                            .offset(x:offsetValue)
+                            .gesture(
+                                DragGesture()
+                                    .onEnded({ value in
+                                        
+                                        if offsetValue >= UnLookOffsetValue * 0.6{
+                                            offsetValue = UnLookOffsetValue * 0.755
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6){
+                                                UnLook = true
+                                            }
+                                            playSound(sound: "ding", type: "mp3")
+                                            
+                                        }else{
+                                            offsetValue = 0
+                                        }
+                                        
+                                    })
+                                    .onChanged { value in
+                                        if value.translation.width > 0 && value.translation.width <= UnLookOffsetValue * 0.755{
+                                            offsetValue = value.translation.width // 更新偏移量
+                                        }
+                                    }
+                            )
+                            
+                            
+                            Spacer()
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 60)
+                        .background{
+                            GeometryReader{ geo in
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(.black)
+                                    .shadow(color:.white,radius: 0.5,y: 0.5)
+                                    .onAppear{
+                                        UnLookOffsetValue = geo.size.width
+                                    }
+                            }
+                            
+                            HStack{
+                                Spacer()
+                                    .frame(width: 80,height: 50)
+                                
+                                if offsetValue == 0{
+                                    UnLockText
                                 }
                             }
                         }
-                        .padding(.trailing) // 将重复的padding提取到外层，避免代码冗余
-                        
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background{
-                        Rectangle()
-                            .fill(.black.opacity(0.7))
-                    }
-                    .foregroundColor(.white)
-                    
-                    VStack{
-                        
-                        Text(time)
-                            .font(.system(size: 90))
-                            .fontWeight(.light)
-                            .foregroundColor(.white)
-                            .padding(.top)
-                        
-                        Text("\(date)\(WeekDay)")
-                            .foregroundColor(.white)
-                            .padding(.bottom)
-                        
+                        .padding()
                     }
                     .frame(maxWidth: .infinity)
                     .background{
                         VStack(spacing: 0){
                             Rectangle()
-                                .fill(.black.opacity(0.5))
+                                .fill(Color(.secondaryLabel))
                             
                             Rectangle()
                                 .fill(.black.opacity(0.6))
                         }
                     }
                 }
-                
-                Spacer()
-                
-                VStack{
-                    HStack{
-                        
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(.systemGray3).gradient)
-                                .shadow(color:.white,radius: 0.5,y: 0.5)
-                                .frame(width: 80,height: 50)
-                                .padding(5)
-                            
-                            Image(systemName: "arrowshape.right.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(.gray)
-                        }
-                        .offset(x:offsetValue)
-                        .gesture(
-                            DragGesture()
-                                .onEnded({ value in
-                                    
-                                    if offsetValue >= UnLookOffsetValue * 0.6{
-                                        offsetValue = UnLookOffsetValue * 0.73
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                                            UnLook = true
-                                        }
-                                        playSound(sound: "ding", type: "mp3")
-                                        
-                                    }else{
-                                        offsetValue = 0
-                                    }
-                                    
-                                })
-                                .onChanged { value in
-                                    if value.translation.width > 0 && value.translation.width <= UnLookOffsetValue * 0.74{
-                                        offsetValue = value.translation.width // 更新偏移量
-                                    }
-                                }
-                        )
-                        
-                        
-                        Spacer()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 60)
-                    .background{
-                        GeometryReader{ geo in
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(.black)
-                                .shadow(color:.white,radius: 0.5,y: 0.5)
-                                .onAppear{
-                                    UnLookOffsetValue = geo.size.width
-                                }
-                        }
-                        
-                        HStack{
-                            Spacer()
-                                .frame(width: 80,height: 50)
-                            
-                            if offsetValue == 0{
-                                UnLockText
-                            }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .animation(.easeInOut, value: offsetValue)
+                .onAppear{
+                    UIDevice.current.isBatteryMonitoringEnabled = true
+                    
+                    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                        if TextEffect == 7{
+                            TextEffect = 0
+                        }else{
+                            TextEffect = (TextEffect ?? 0) + 1
                         }
                     }
-                    .padding()
+                    RunLoop.current.add(timer!, forMode: .common)
                 }
-                .frame(maxWidth: .infinity)
-                .background{
-                    VStack(spacing: 0){
-                        Rectangle()
-                            .fill(.black.opacity(0.7))
-                        
-                        Rectangle()
-                            .fill(.black.opacity(0.8))
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background{
-                Image("bg")
-                    .resizable()
-            }
-            .animation(.easeInOut, value: offsetValue)
-            .onAppear{
-                UIDevice.current.isBatteryMonitoringEnabled = true
-                
-                timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-                    if TextEffect == 7{
-                        TextEffect = 0
-                    }else{
-                        TextEffect = (TextEffect ?? 0) + 1
-                    }
-                }
-                RunLoop.current.add(timer!, forMode: .common)
             }
         }
     }
