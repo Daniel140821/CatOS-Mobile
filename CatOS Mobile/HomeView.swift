@@ -127,9 +127,6 @@ struct HomeView: View {
                                     Group{
                                         HomeViewSearchPage()
                                             .id(0)
-                                            .background{
-                                                Color.black.opacity(0.7).ignoresSafeArea()
-                                            }
                                         HomeViewPage1()
                                             .id(1)
                                         HomeViewPage2()
@@ -143,7 +140,12 @@ struct HomeView: View {
                             .scrollPosition(id: $pages)
                             .scrollIndicators(.hidden)
                             .scrollTargetBehavior(.paging)
-                            .frame(maxWidth: .infinity)
+                            .frame(maxWidth: .infinity,maxHeight: .infinity)
+                            .background{
+                                if pages == 0{
+                                    Color.black.opacity(0.7).ignoresSafeArea()
+                                }
+                            }
                             .onAppear { proxy.scrollTo(1, anchor: .leading) }
                         }
                     }
