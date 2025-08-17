@@ -81,7 +81,7 @@ struct Icons: View {
                         .foregroundColor(.black)
                         .offset(y:8)
                     
-                }
+                }.frame(width: 65, height: 65)
                 
                 Text("日曆")
                     .padding(.vertical)
@@ -106,4 +106,9 @@ struct Icons: View {
             }
         }
     }
+}
+
+
+#Preview {
+    HomeView()
 }
